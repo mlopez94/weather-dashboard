@@ -93,13 +93,6 @@ p {
   }
 
 
-
-
-
-
-
-
-
   .hero {
     padding: 3% 4%;
     background-color: var(--dark);
@@ -127,9 +120,19 @@ p {
       border-radius: var(--border-radius);
   }
 
+  .card-header {
+    color: var(--primary);
+    background-color: var(--dark);
+    padding: 2.5%;
+    border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+  }
+
+
   .card-body {
       padding: 2.5%;
   }
+
+
 
   /* Form styles */
   .form-label
@@ -150,5 +153,11 @@ p {
       font-size: 1.2rem;
       border: 2px solid var(--light-dark);
       border-radius: var(--border-radius);
+  }
+
+  /* font utils */
+
+  .text-uppercase {
+      text-transform: uppercase;
   }
 
