@@ -1,6 +1,6 @@
 var getWeather = function (user) {
     // format the weather api url
-    var weatherURL = "" + user;
+    var weatherURL = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={API key}" + user;
 
     // make a request to the url
     fetch(weatherURL).then(function(response) {
@@ -10,24 +10,29 @@ var getWeather = function (user) {
     });
 };
 
-var formEl = document.querySelector("#user-form");
-var inputEl = document.querySelector("#entercity");
-
-
-// testing button
-var formSubmitHandler = function (event) {
-    event.preventDefault();
-    //get value from input element
-    var entercity = inputEl.value.trim();
-
-    if(entercity) {
-        getWeather(entercity);
-        inputEl.value = "";
-    } else {
-        alert("Please enter a city");
-    }
-
-    console.log(event);
+$("#cityBtn").on("click"), function() {
+    $(this).slideUp();
 };
 
-formEl.addEventListener("submit", formSubmitHandler);
+
+// var formEl = document.querySelector("#user-form");
+// var inputEl = document.querySelector("#entercity");
+
+
+// // testing button
+// var formSubmitHandler = function (event) {
+//     event.preventDefault();
+//     //get value from input element
+//     var entercity = inputEl.value.trim();
+
+//     if(entercity) {
+//         getWeather(entercity);
+//         inputEl.value = "";
+//     } else {
+//         alert("Please enter a city");
+//     }
+
+//     console.log(event);
+// };
+
+// formEl.addEventListener("submit", formSubmitHandler);
