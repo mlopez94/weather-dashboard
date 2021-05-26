@@ -47,10 +47,10 @@ var renderWeather = function (data) {
 
 }
 
- $("#cityBtn").on("click", function() {
-     alert("button was clicked");
-//    var buttonData =  $("#entercity").val();
-//    console.log(buttonData);
+ $("#cityBtn").click (function() {
+    //  alert("button was clicked");
+   var buttonData =  $("#entercity").val();
+   console.log(buttonData);
 
    getWeather(buttonData);
 
