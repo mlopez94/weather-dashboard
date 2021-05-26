@@ -1,7 +1,7 @@
 var lon = 0;
 var lat = 0;
 
-var forcastURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&units=imperial&appid=518cefa1a9edeefef3077a2f5077d0a7";
+
 
 
 
@@ -24,6 +24,7 @@ var getWeather = function (user) {
 };
 
 var displayWeather = function (lat, lon) {
+    var forcastURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&units=imperial&appid=518cefa1a9edeefef3077a2f5077d0a7";
     fetch(forcastURL).then(function(response) {
         response.json().then(function (data) {
             console.log(data);
