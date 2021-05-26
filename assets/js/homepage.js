@@ -1,8 +1,12 @@
+var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=chicago&appid=518cefa1a9edeefef3077a2f5077d0a7"
+var forcastURL = "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid=518cefa1a9edeefef3077a2f5077d0a7"
+
+
+
 var getWeather = function (user) {
     // format the weather api url
-    var weatherURL = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={API key}" + user;
+    
 
-    // make a request to the url
     fetch(weatherURL).then(function(response) {
         response.json().then(function (data) {
             console.log(data);
@@ -10,9 +14,9 @@ var getWeather = function (user) {
     });
 };
 
-$("#cityBtn").on("click"), function() {
-    $(this).slideUp();
-};
+// $("#cityBtn").on("click"), function() {
+//     $(this).
+// };
 
 
 // var formEl = document.querySelector("#user-form");
