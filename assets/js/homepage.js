@@ -56,9 +56,9 @@ var renderWeather = function (data) {
     var humidity = data.daily[i].humidity;
     var wind = data.daily[i].wind_speed;
 
-    $
+    
 
-    console.log(temp);
+    console.log(uvi);
 
 
 
@@ -77,6 +77,11 @@ var renderWeather = function (data) {
 $("#cityBtn").click(function (event) {
   event.preventDefault();
   var buttonData = $("#entercity").val();
+  var text = $(this).siblings("#entercity").val();
+  var time = $(this).parent().attr("id");
+  
+  
+  localStorage.setItem(time, text);
 
   getWeather(buttonData);
 });
