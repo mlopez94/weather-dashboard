@@ -1,5 +1,24 @@
 var lon = 0;
 var lat = 0;
+var cities = [];
+
+
+//global function
+var populateContainer = function () {
+  
+
+  if (JSON.parse(localStorage.getItem("myCity"))) {
+    cities = JSON.parse(localStorage.getItem("myCity"));
+  }
+
+  $(".container").html("");
+
+  for (var i = 0, len = cities.length; i < len; i++) {
+    $(".container").append("<div>" + cities[i] + "</div>");
+  }
+};
+
+ populateContainer();
 
 var getWeather = function (user) {
   // format the weather api url
@@ -50,39 +69,29 @@ var renderWeather = function (data) {
   $("#humidity").append(humidity);
   $("#wind").append(wind);
 
-  for (i=1; i < 6; i++) {
+  for (i = 1; i < 6; i++) {
     var temp = data.daily[i].temp.day;
     var uvi = data.daily[i].uvi;
     var humidity = data.daily[i].humidity;
     var wind = data.daily[i].wind_speed;
 
-    
-
     console.log(uvi);
-
-
-
-
-
-
-
-  
-
-
-
-
   }
 };
+
+
 
 $("#cityBtn").click(function (event) {
   event.preventDefault();
   var buttonData = $("#entercity").val();
   var text = $(this).siblings("#entercity").val();
   var time = $(this).parent().attr("id");
-  
-  
+
   localStorage.setItem(time, text);
+
+  cities.push('newItem');
+  localStorage.setItem('myCity', JSON.stringify(cities));
+  populateContainer();
 
   getWeather(buttonData);
 });
-
