@@ -11,13 +11,14 @@ var populateContainer = function () {
     cities = JSON.parse(localStorage.getItem("myCity"));
   }
 
-  $(".container").html("");
+  $(".cityList").html("");
 
-  for (var i = 0, len = cities.length; i < len; i++) {
-    $(".container").append("<div>" + cities[i] + "</div>");
+  for (var i = 0; i < cities.length; i++) {
+    $(".cityList").append("<div>" + cities[i] + "</div>");
   }
 };
 
+  console.log(cities);
  populateContainer();
 
 var getWeather = function (user) {
@@ -81,7 +82,7 @@ var renderWeather = function (data) {
 
 
 
-$("#cityBtn").click(function (event) {
+$("#user-form").submit(function(event){
   event.preventDefault();
   var buttonData = $("#entercity").val();
   var text = $(this).siblings("#entercity").val();
@@ -89,7 +90,7 @@ $("#cityBtn").click(function (event) {
 
   localStorage.setItem(time, text);
 
-  cities.push('newItem');
+  cities.push(buttonData);
   localStorage.setItem('myCity', JSON.stringify(cities));
   populateContainer();
 
