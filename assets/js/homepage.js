@@ -76,28 +76,51 @@ var renderWeather = function (data) {
     var humidity = data.daily[i].humidity;
     var wind = data.daily[i].wind_speed;
 
+    // temp for cards
     $("#temp1").empty();
     $("#temp2").empty();
     $("#temp3").empty();
     $("#temp4").empty();
     $("#temp5").empty();
 
+    // humidity for cards
+    $("#humid1").empty();
+    $("#humid2").empty();
+    $("#humid3").empty();
+    $("#humid4").empty();
+    $("#humid5").empty();
+
+
+    // pulling data for temp
     temp1 = "Temp: " + data.daily[0].temp.day + " °F";
     temp2 = "Temp: " + data.daily[1].temp.day + " °F";
     temp3 = "Temp: " + data.daily[2].temp.day + " °F";
     temp4 = "Temp: " + data.daily[3].temp.day + " °F";
     temp5 = "Temp: " + data.daily[4].temp.day + " °F";
 
-    // humid1 = "Humid: " + data.daily[0].humidity;
+    // pulling data for humidity
+    humid1 = "Humidity: " + data.daily[0].humidity + " %";
+    humid2 = "Humidity: " + data.daily[1].humidity + " %";
+    humid3 = "Humidity: " + data.daily[2].humidity + " %";
+    humid4 = "Humidity: " + data.daily[3].humidity + " %";
+    humid5 = "Humidity: " + data.daily[4].humidity + " %";
 
+    // appending data
     $("#temp1").append(temp1);
     $("#temp2").append(temp2);
     $("#temp3").append(temp3);
     $("#temp4").append(temp4);
     $("#temp5").append(temp5);
 
+    // appending humidity
+    $("#humid1").append(humid1);
+    $("#humid2").append(humid2);
+    $("#humid3").append(humid3);
+    $("#humid4").append(humid4);
+    $("#humid5").append(humid5);
 
-    // $("#humid1").append(humid1);
+
+   
 
     
 
