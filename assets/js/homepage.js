@@ -3,7 +3,7 @@ var lat = 0;
 var cities = [];
 
 
-//global function
+//global function to iterate through cities
 var populateContainer = function () {
   
 
