@@ -61,9 +61,9 @@ var renderWeather = function (data) {
   $("#wind").empty();
 
   temp = "Temperature: "+ data.current.temp + " °F";
-  humidity = "Humidity: "+ data.current.humidity + " %";
+  humidity = "Humidity: "+ data.current.humidity + "%";
   uvi = "UVI: "+ data.current.uvi;
-  wind = "Wind Speed: "+ data.current.wind_speed + " mph";
+  wind = "Wind Speed: "+ data.current.wind_speed + " MPH";
 
   $("#temp").append(temp);
   $("#uvi").append(uvi);
@@ -76,18 +76,18 @@ var renderWeather = function (data) {
     var humidity = data.daily[i].humidity;
     var wind = data.daily[i].wind_speed;
 
-    //card creation
-    var forcastCard = $("<div>").addClass("card");
-    var forcastCardTitle = $("<div>").addClass("card-divide");
-    var forcastCardBody = $("<div>").addClass("card-section");
-    var forcastCardFooter = $("<div>").addClass("card-divide card-footer");
-    console.log(forcastCardTitle);
+    $("#temperature").empty();
 
-    // insert city name
-    var forcastEl = $("div").text
+    temperature = data.daily.
+
+    $("temperature").append(temperature);
+
+    
 
 
-    console.log(uvi);
+
+
+    console.log(temp);
   }
 };
 
