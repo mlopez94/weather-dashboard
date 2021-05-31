@@ -2,11 +2,8 @@ var lon = 0;
 var lat = 0;
 var cities = [];
 
-
 //global function to iterate through cities
 var populateContainer = function () {
-  
-
   if (JSON.parse(localStorage.getItem("myCity"))) {
     cities = JSON.parse(localStorage.getItem("myCity"));
   }
@@ -18,8 +15,8 @@ var populateContainer = function () {
   }
 };
 
-  console.log(cities);
- populateContainer();
+console.log(cities);
+populateContainer();
 
 var getWeather = function (user) {
   // format the weather api url
@@ -60,10 +57,10 @@ var renderWeather = function (data) {
   $("#humidity").empty();
   $("#wind").empty();
 
-  temp = "Temperature: "+ data.current.temp + " °F";
-  humidity = "Humidity: "+ data.current.humidity + "%";
-  uvi = "UVI: "+ data.current.uvi;
-  wind = "Wind Speed: "+ data.current.wind_speed + " MPH";
+  temp = "Temperature: " + data.current.temp + " °F";
+  humidity = "Humidity: " + data.current.humidity + "%";
+  uvi = "UVI: " + data.current.uvi;
+  wind = "Wind Speed: " + data.current.wind_speed + " MPH";
 
   $("#temp").append(temp);
   $("#uvi").append(uvi);
@@ -90,6 +87,12 @@ var renderWeather = function (data) {
     $("#humid4").empty();
     $("#humid5").empty();
 
+    // wind speed for cards
+    $("#wind1").empty();
+    $("#wind2").empty();
+    $("#wind3").empty();
+    $("#wind4").empty();
+    $("#wind5").empty();
 
     // pulling data for temp
     temp1 = "Temp: " + data.daily[0].temp.day + " °F";
@@ -105,6 +108,13 @@ var renderWeather = function (data) {
     humid4 = "Humidity: " + data.daily[3].humidity + " %";
     humid5 = "Humidity: " + data.daily[4].humidity + " %";
 
+    // pulling data for wind speed
+    wind1 = "Wind: " + data.daily[0].wind_speed + " MPH";
+    wind2 = "Wind: " + data.daily[1].wind_speed + " MPH";
+    wind3 = "Wind: " + data.daily[2].wind_speed + " MPH";
+    wind4 = "Wind: " + data.daily[3].wind_speed + " MPH";
+    wind5 = "Wind: " + data.daily[4].wind_speed + " MPH";
+
     // appending data
     $("#temp1").append(temp1);
     $("#temp2").append(temp2);
@@ -119,21 +129,18 @@ var renderWeather = function (data) {
     $("#humid4").append(humid4);
     $("#humid5").append(humid5);
 
-
-   
-
-    
-
-
-
+    //append wind
+    $("#wind1").append(wind1);
+    $("#wind2").append(wind2);
+    $("#wind3").append(wind3);
+    $("#wind4").append(wind4);
+    $("#wind5").append(wind5);
 
     console.log(temp5);
   }
 };
 
-
-
-$("#user-form").submit(function(event){
+$("#user-form").submit(function (event) {
   event.preventDefault();
   var buttonData = $("#entercity").val();
   var text = $(this).siblings("#entercity").val();
@@ -142,7 +149,7 @@ $("#user-form").submit(function(event){
   localStorage.setItem(time, text);
 
   cities.push(buttonData);
-  localStorage.setItem('myCity', JSON.stringify(cities));
+  localStorage.setItem("myCity", JSON.stringify(cities));
   populateContainer();
 
   getWeather(buttonData);
