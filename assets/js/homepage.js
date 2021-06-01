@@ -52,22 +52,27 @@ var displayWeather = function (lat, lon) {
 };
 
 var renderWeather = function (data) {
+  $("#icon").empty();
   $("#temp").empty();
   $("#uvi").empty();
   $("#humidity").empty();
   $("#wind").empty();
 
+  icon = data.current.weather[0].icon;
   temp = "Temperature: " + data.current.temp + " °F";
   humidity = "Humidity: " + data.current.humidity + "%";
   uvi = "UVI: " + data.current.uvi;
   wind = "Wind Speed: " + data.current.wind_speed + " MPH";
 
+  
+  $("#icon").append(icon);
   $("#temp").append(temp);
   $("#uvi").append(uvi);
   $("#humidity").append(humidity);
   $("#wind").append(wind);
 
   for (i = 1; i < 6; i++) {
+    var icon = data.daily[i].weather[i].icon;
     var temp = data.daily[i].temp.day;
     var uvi = data.daily[i].uvi;
     var humidity = data.daily[i].humidity;
@@ -137,6 +142,8 @@ var renderWeather = function (data) {
     $("#wind5").append(wind5);
 
     console.log(temp5);
+
+    console.log(icon)
   }
 };
 
