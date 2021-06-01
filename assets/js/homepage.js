@@ -23,8 +23,8 @@ var getWeather = function (user) {
 
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-      user +
-      "&appid=2fd9f6120b1e5e49f6b0893e50ef57f6"
+    user +
+    "&appid=2fd9f6120b1e5e49f6b0893e50ef57f6"
   ).then(function (response) {
     response.json().then(function (data) {
       lon = data.coord.lon;
@@ -59,93 +59,53 @@ var renderWeather = function (data) {
   $("#wind").empty();
 
   icon = data.current.weather[0].icon;
-  iconEl = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
+  // iconEl = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
   temp = "Temperature: " + data.current.temp + " °F";
   humidity = "Humidity: " + data.current.humidity + "%";
   uvi = "UVI: " + data.current.uvi;
   wind = "Wind Speed: " + data.current.wind_speed + " MPH";
 
-  
-  $("#icon").append(iconEl);
+
+  // $("#icon").append(iconEl);
   $("#temp").append(temp);
   $("#uvi").append(uvi);
   $("#humidity").append(humidity);
   $("#wind").append(wind);
 
   for (i = 1; i < 6; i++) {
-    console.log(iconEl);
-    var icon = data.daily[i].weather[0].icon;
-    var temp = data.daily[i].temp.day;
-    var uvi = data.daily[i].uvi;
-    var humidity = data.daily[i].humidity;
-    var wind = data.daily[i].wind_speed;
+
+    var icon = data.daily[i - 1].weather[0].icon;
+    var temp = data.daily[i - 1].temp.day;
+    var uvi = data.daily[i - 1].uvi;
+    var humidity = data.daily[i - 1].humidity;
+    var wind = data.daily[i - 1].wind_speed;
 
     // temp for cards
-    $("#temp1").empty();
-    $("#temp2").empty();
-    $("#temp3").empty();
-    $("#temp4").empty();
-    $("#temp5").empty();
+    $("#temp" + i).empty();
+
 
     // humidity for cards
-    $("#humid1").empty();
-    $("#humid2").empty();
-    $("#humid3").empty();
-    $("#humid4").empty();
-    $("#humid5").empty();
+    $("#humid" + i).empty();
+
 
     // wind speed for cards
-    $("#wind1").empty();
-    $("#wind2").empty();
-    $("#wind3").empty();
-    $("#wind4").empty();
-    $("#wind5").empty();
+    $("#wind" + i).empty();
 
-    // pulling data for temp
-    temp1 = "Temp: " + data.daily[0].temp.day + " °F";
-    temp2 = "Temp: " + data.daily[1].temp.day + " °F";
-    temp3 = "Temp: " + data.daily[2].temp.day + " °F";
-    temp4 = "Temp: " + data.daily[3].temp.day + " °F";
-    temp5 = "Temp: " + data.daily[4].temp.day + " °F";
 
-    // pulling data for humidity
-    humid1 = "Humidity: " + data.daily[0].humidity + " %";
-    humid2 = "Humidity: " + data.daily[1].humidity + " %";
-    humid3 = "Humidity: " + data.daily[2].humidity + " %";
-    humid4 = "Humidity: " + data.daily[3].humidity + " %";
-    humid5 = "Humidity: " + data.daily[4].humidity + " %";
-
-    // pulling data for wind speed
-    wind1 = "Wind: " + data.daily[0].wind_speed + " MPH";
-    wind2 = "Wind: " + data.daily[1].wind_speed + " MPH";
-    wind3 = "Wind: " + data.daily[2].wind_speed + " MPH";
-    wind4 = "Wind: " + data.daily[3].wind_speed + " MPH";
-    wind5 = "Wind: " + data.daily[4].wind_speed + " MPH";
 
     // appending data
-    $("#temp1").append(temp1);
-    $("#temp2").append(temp2);
-    $("#temp3").append(temp3);
-    $("#temp4").append(temp4);
-    $("#temp5").append(temp5);
+    $("#temp" + i).append(temp);
+
 
     // appending humidity
-    $("#humid1").append(humid1);
-    $("#humid2").append(humid2);
-    $("#humid3").append(humid3);
-    $("#humid4").append(humid4);
-    $("#humid5").append(humid5);
+    $("#humid" + i).append(humidity);
 
     //append wind
-    $("#wind1").append(wind1);
-    $("#wind2").append(wind2);
-    $("#wind3").append(wind3);
-    $("#wind4").append(wind4);
-    $("#wind5").append(wind5);
+    $("#wind" + i).append(wind);
 
-    console.log(temp5);
 
-    console.log(icon)
+    $("#icon" + i).attr("src", "http://openweathermap.org/img/w/" + icon + ".png");
+
   }
 };
 
