@@ -80,11 +80,15 @@ var renderWeather = function (data) {
   $("#wind").append(wind);
 
   for (i = 1; i < 6; i++) {
+    var date = moment().add(i, 'days');
     var icon = data.daily[i - 1].weather[0].icon;
     var temp = data.daily[i - 1].temp.day;
     var uvi = data.daily[i - 1].uvi;
     var humidity = data.daily[i - 1].humidity;
     var wind = data.daily[i - 1].wind_speed;
+
+    // date for cards
+    $("#date" + i).empty();
 
     // temp for cards
     $("#temp" + i).empty();
@@ -94,6 +98,9 @@ var renderWeather = function (data) {
 
     // wind speed for cards
     $("#wind" + i).empty();
+
+    // appending date
+    $("#date" + i).append(date.format("L"));
 
     // appending data
     $("#temp" + i).append("Temp: " + temp + " °F");
