@@ -11,7 +11,7 @@ var populateContainer = function () {
   $(".cityList").html("");
 
   for (var i = 0; i < cities.length; i++) {
-    $(".cityList").append("<div>" + cities[i] + "</div>");
+    $(".cityList").append("<div class='btn btn-secondary btn-block'>" + cities[i] + "</div>");
   }
 };
 
@@ -65,7 +65,7 @@ var renderWeather = function (data) {
   uvi = "UVI: " + data.current.uvi;
   wind = "Wind Speed: " + data.current.wind_speed + " MPH";
 
-  // $("#icon").append(iconEl);
+  $("#icon").append(icon);
   $("#temp").append(temp);
   $("#uvi").append(uvi);
   $("#humidity").append(humidity);
@@ -96,10 +96,19 @@ var renderWeather = function (data) {
     //append wind
     $("#wind" + i).append("Wind: " + wind + " MPH");
 
+    // icon for cards
     $("#icon" + i).attr(
       "src",
       "http://openweathermap.org/img/w/" + icon + ".png"
     );
+
+    // icon for todays weather
+    $("#icon").attr(
+      "src",
+      "http://openweathermap.org/img/w/" + icon + ".png"
+    );
+
+    
   }
 };
 
