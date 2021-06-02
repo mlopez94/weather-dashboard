@@ -23,8 +23,8 @@ var getWeather = function (user) {
 
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-    user +
-    "&appid=2fd9f6120b1e5e49f6b0893e50ef57f6"
+      user +
+      "&appid=2fd9f6120b1e5e49f6b0893e50ef57f6"
   ).then(function (response) {
     response.json().then(function (data) {
       lon = data.coord.lon;
@@ -65,7 +65,6 @@ var renderWeather = function (data) {
   uvi = "UVI: " + data.current.uvi;
   wind = "Wind Speed: " + data.current.wind_speed + " MPH";
 
-
   // $("#icon").append(iconEl);
   $("#temp").append(temp);
   $("#uvi").append(uvi);
@@ -73,7 +72,6 @@ var renderWeather = function (data) {
   $("#wind").append(wind);
 
   for (i = 1; i < 6; i++) {
-
     var icon = data.daily[i - 1].weather[0].icon;
     var temp = data.daily[i - 1].temp.day;
     var uvi = data.daily[i - 1].uvi;
@@ -83,29 +81,25 @@ var renderWeather = function (data) {
     // temp for cards
     $("#temp" + i).empty();
 
-
     // humidity for cards
     $("#humid" + i).empty();
-
 
     // wind speed for cards
     $("#wind" + i).empty();
 
-
-
     // appending data
-    $("#temp" + i).append(temp);
-
+    $("#temp" + i).append("Temp: " + temp + " °F");
 
     // appending humidity
-    $("#humid" + i).append(humidity);
+    $("#humid" + i).append("Humidity: " + humidity + " %");
 
     //append wind
-    $("#wind" + i).append(wind);
+    $("#wind" + i).append("Wind: " + wind + " MPH");
 
-
-    $("#icon" + i).attr("src", "http://openweathermap.org/img/w/" + icon + ".png");
-
+    $("#icon" + i).attr(
+      "src",
+      "http://openweathermap.org/img/w/" + icon + ".png"
+    );
   }
 };
 
