@@ -129,14 +129,15 @@ $("#user-form").submit(function (event) {
   getWeather(buttonData);
 });
 
-$("#retCity").click(function (event) {
+// binding click event to the doc and child elements
+$(document).on("click", "#retCity", function (event) {
   event.preventDefault();
-  var returnButton = $("#retCity").text();
-  console.log(returnButton);
+  var returnButton = $(this).text()
+  console.log(returnButton, " return button");
 
   getWeather(returnButton);
-
 });
+
 
 
 
