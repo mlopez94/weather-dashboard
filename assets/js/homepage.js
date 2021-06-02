@@ -73,6 +73,19 @@ var renderWeather = function (data) {
   uvi = "UVI: " + data.current.uvi;
   wind = "Wind Speed: " + data.current.wind_speed + " MPH";
 
+
+  
+    // Changing colors of input fields
+    if (uvi <= 2) {
+      $(this).find("uvi").addClass("uvi-low");
+    } else if (uvi > 2 && uvi < 7) {
+      $(this).find("uvi").addClass("uvi-mod");
+    } else {
+      $(this).find("uvi").addClass("uvi-high");
+    }
+    
+  });
+
   $("#icon").append(icon);
   $("#temp").append(temp);
   $("#uvi").append(uvi);

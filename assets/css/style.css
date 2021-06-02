@@ -7,3 +7,21 @@ header {
   padding: 20px;
   text-align: center;
 }
+
+.uvi-low {
+  background-color: seagreen;
+  color: white;
+  display: inline;
+}
+
+.uvi-mod {
+  background-color: orange;
+  color: white;
+  display: inline;
+}
+
+.uvi-high {
+  background-color: red;
+  color: white;
+  display: inline;
+}
