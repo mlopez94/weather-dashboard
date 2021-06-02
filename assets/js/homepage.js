@@ -4,6 +4,7 @@ var cities = [];
 
 // Date on current weather div
 $("#currentDay").text(moment().format("dddd, MMMM Do"));
+$("#city").text();
 
 
 //global function to iterate through cities
