@@ -31,8 +31,8 @@ var getWeather = function (user) {
 
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
-      user +
-      "&appid=2fd9f6120b1e5e49f6b0893e50ef57f6"
+    user +
+    "&appid=2fd9f6120b1e5e49f6b0893e50ef57f6"
   ).then(function (response) {
     response.json().then(function (data) {
       lon = data.coord.lon;
@@ -74,16 +74,14 @@ var renderWeather = function (data) {
   wind = "Wind Speed: " + data.current.wind_speed + " MPH";
 
 
-  // $("#uvi").addClass("uvi-high");
-    // Changing colors of input fields
-    if (uvi <= '2') {
-      $("#uvi").addClass("uvi-low");
-    } else if (uvi > 2 && uvi < '7') {
-      $("#uvi").addClass("uvi-mod");
-    } else {
-      $("#uvi").addClass("uvi-high");
-    }
-
+  // if/else for UVI
+  if (data.current.uvi <= 2) {
+    $("#uvi").addClass("uvi-low");
+  } else if (data.current.uvi > 2 && data.current.uvi < 7) {
+    $("#uvi").addClass("uvi-mod");
+  } else {
+    $("#uvi").addClass("uvi-high");
+  }
 
   $("#icon").append(icon);
   $("#temp").append(temp);
