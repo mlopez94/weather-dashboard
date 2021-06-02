@@ -21,10 +21,6 @@ console.log(cities[0]);
 populateContainer();
 
 
-
-
-
-
 var getWeather = function (user) {
   // format the weather api url
 
