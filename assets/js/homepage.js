@@ -17,7 +17,7 @@ var populateContainer = function () {
   }
 };
 
-console.log(cities);
+console.log(cities[0]);
 populateContainer();
 
 
