@@ -2,6 +2,10 @@ var lon = 0;
 var lat = 0;
 var cities = [];
 
+// Date on current weather div
+$("#currentDay").text(moment().format("dddd, MMMM Do"));
+
+
 //global function to iterate through cities
 var populateContainer = function () {
   if (JSON.parse(localStorage.getItem("myCity"))) {
