@@ -74,17 +74,16 @@ var renderWeather = function (data) {
   wind = "Wind Speed: " + data.current.wind_speed + " MPH";
 
 
-  
+  // $("#uvi").addClass("uvi-high");
     // Changing colors of input fields
-    if (uvi <= 2) {
-      $(this).find("uvi").addClass("uvi-low");
-    } else if (uvi > 2 && uvi < 7) {
-      $(this).find("uvi").addClass("uvi-mod");
+    if (uvi <= '2') {
+      $("#uvi").addClass("uvi-low");
+    } else if (uvi > 2 && uvi < '7') {
+      $("#uvi").addClass("uvi-mod");
     } else {
-      $(this).find("uvi").addClass("uvi-high");
+      $("#uvi").addClass("uvi-high");
     }
-    
-  });
+
 
   $("#icon").append(icon);
   $("#temp").append(temp);
