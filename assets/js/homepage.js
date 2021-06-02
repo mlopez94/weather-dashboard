@@ -11,12 +11,19 @@ var populateContainer = function () {
   $(".cityList").html("");
 
   for (var i = 0; i < cities.length; i++) {
-    $(".cityList").append("<div class='btn btn-secondary btn-block'>" + cities[i] + "</div>");
+    $(".cityList").append(
+      "<div class='btn btn-secondary btn-block' id='retCity'>" + cities[i] + "</div>"
+    );
   }
 };
 
 console.log(cities);
 populateContainer();
+
+
+
+
+
 
 var getWeather = function (user) {
   // format the weather api url
@@ -103,12 +110,7 @@ var renderWeather = function (data) {
     );
 
     // icon for todays weather
-    $("#icon").attr(
-      "src",
-      "http://openweathermap.org/img/w/" + icon + ".png"
-    );
-
-    
+    $("#icon").attr("src", "http://openweathermap.org/img/w/" + icon + ".png");
   }
 };
 
@@ -126,3 +128,18 @@ $("#user-form").submit(function (event) {
 
   getWeather(buttonData);
 });
+
+$("#retCity").click(function (event) {
+  event.preventDefault();
+  var returnButton = $("#retCity").text();
+  console.log(returnButton);
+
+  getWeather(returnButton);
+
+});
+
+
+
+
+
+
