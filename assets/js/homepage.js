@@ -73,6 +73,11 @@ var renderWeather = function (data) {
   uvi = "UVI: " + data.current.uvi;
   wind = "Wind Speed: " + data.current.wind_speed + " MPH";
 
+  // empty the classes
+  $("#uvi").removeClass("uvi-high");
+  $("#uvi").removeClass("uvi-mod");
+  $("#uvi").removeClass("uvi-low");
+
 
   // if/else for uvi
   if (data.current.uvi <= 2) {
